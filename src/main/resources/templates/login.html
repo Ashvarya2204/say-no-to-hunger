@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: layout(~{::main})}">
+
+<body th:attr="data-success=${success}, data-error=${error}">
+
+    <main th:fragment="main" class="login-page">
+
+    <div class="login-container">
+       
+        <div class="login-bg">
+            <div class="bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+
+      
+        <div class="login-form">
+            <div class="form-header">
+                <h3>Enter email to receive magic link</h3>
+            </div>
+
+          
+            <div th:if="${error}" 
+                class="toast error-toast show">
+                <span class="toast-icon">❌</span>
+                <span th:text="${error}">Registration required!</span>
+            </div>
+
+           
+            <div th:if="${showRegisterPopup}" 
+                 class="modal-overlay show" 
+                 onclick="this.classList.remove('show')">
+
+                <div class="modal-card" onclick="event.stopPropagation()">
+
+                    <h3>📝 Register First</h3>
+                    <p th:text="${error}">Please complete registration!</p>
+
+                    <div class="modal-actions">
+                        <a th:href="@{/donor/create}" class="btn-primary">→ Donor</a>
+                        <a th:href="@{/volunteer/create}" class="btn-secondary">→ Volunteer</a>
+                    </div>
+
+                </div>
+            </div>
+
+           <form th:action="@{/auth/send-link}" method="post" class="magic-form">
+
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="john@example.com" required 
+                           class="magic-input" autocomplete="email" id="emailInput">
+                </div>
+
+                <button type="submit" class="magic-btn">
+                    <span>Send Magic Link</span>
+                    <div class="btn-wave"></div>
+                </button>
+
+            </form>
+
+            <div th:if="${message}" class="modal-overlay" id="magicPopup">
+                <div class="modal-card">
+
+                    <h3>✅ Magic Link Sent</h3>
+
+                    <p>
+                        A secure login link has been sent to your email.<br>
+                        The link is valid for <b>10 minutes</b>.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function(){
+
+        const popup = document.getElementById("magicPopup");
+
+        if(popup){
+
+            popup.classList.add("show");
+
+            setTimeout(function(){
+
+                popup.classList.remove("show");
+
+            },5000);
+
+        }
+
+    });
+</script>
+
+ <script th:src="@{/js/login.js}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script th:src="@{/js/alerts.js}"></script>
+
+</body>
+</html>

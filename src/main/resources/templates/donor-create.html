@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Donor - SayNo2Hunger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" 
+         rel="stylesheet">
+    <link th:href="@{/css/donor-register.css}" rel="stylesheet">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+
+    <nav class="donor-navbar">
+        <div class="donor-logo">✨ SayNo2Hunger</div>
+        <div class="donor-nav-links">
+            <a href="/" class="nav-link home-btn">🏠 Home</a>
+            <a href="/login" class="nav-link login-btn">🔐 Login</a>
+            <a href="/logout" class="nav-link logout-btn">🚪 Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="logo">
+            <h1>✨ SayNo2Hunger</h1>
+            <p>Join the fight against hunger</p>
+        </div>
+
+        <div th:if="${successMessage}" class="success-msg" th:text="${successMessage}"></div>
+
+        <form th:action="@{/donor/create}" th:object="${donor}" method="post">
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" placeholder="Enter your email" required/>
+            </div>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" th:field="*{name}" placeholder="Enter your full name" required/>
+            </div>
+            
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" th:field="*{phone}" placeholder="Enter phone number" required/>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Create Donor Account 🚀
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already registered? <a href="/login">Login here</a>
+        </div>
+
+    </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+    
+</body>
+</html>

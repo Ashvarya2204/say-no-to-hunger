@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book of Happiness - SayNo2Hunger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/happiness.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+      
+    <nav class="navbar">
+        <div class="logo">✨ SayNo2Hunger</div>
+        <div class="nav-right">
+
+        <a sec:authorize="hasRole('FOOD_DONOR')"
+           th:href="@{/donor/dashboard}"
+           class="nav-btn dashboard-btn">
+            🏠Dashboard
+        </a>
+
+        <a th:href="@{/logout-success}" 
+             class="nav-btn logout-btn">
+             🚪Logout
+        </a>
+
+        </div>
+    </nav>
+
+    <main class="happiness-main">
+        
+        <section class="hero-quote">
+            <blockquote>
+                "Happiness shared is the flower."
+            </blockquote>
+        </section>
+
+        <h3 class="page-title">📖 Book of Happiness</h3>
+
+        
+        <div th:if="${#lists.isEmpty(donations)}" class="empty-state">
+            <p>No happiness stories yet ❤️</p>
+            <p>Be the first to spread joy!</p>
+        </div>
+
+       
+        <div class="donations-grid" th:unless="${#lists.isEmpty(donations)}">
+            <div th:each="d : ${donations}" class="happiness-card">
+
+                <h3 th:text="${d.foodName}" class="food-name"></h3>
+
+                <p class="city-info"><strong>City:</strong> <span th:text="${d.city}"></span></p>
+
+                <div class="image-container">
+                    <img th:src="@{'/' + ${d.completionImagePath}}" alt="Happiness moment" loading="lazy">
+                </div>
+
+            </div>
+
+           
+            <div class="happiness-card motivational-card">
+                <div class="motiv-icon">😊</div>
+
+                <h3>Keep Going!</h3>
+
+                <blockquote class="motiv-quote">
+                    "Keep making faces like these light up! Your kindness feeds hearts forever."
+                </blockquote>
+                
+                <p class="motiv-sub">One meal at a time ❤️</p>
+            </div>
+        </div>
+    </main>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+</body>
+</html>

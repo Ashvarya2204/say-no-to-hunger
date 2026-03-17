@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Volunteer Dashboard - SayNoHunger</title>
+    <link rel="stylesheet" th:href="@{/css/volunteer-dashboard.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+    
+    <nav class="navbar">
+        <div class="nav-brand">
+            ✨ SayNo2Hunger
+        </div>
+
+        <div class="nav-actions">
+
+            <a th:href="@{/volunteer/profile}" class="nav-btn profile">
+                👤 Profile
+            </a>
+
+            <a href="/logout" class="nav-btn logout">
+                🚪 Logout
+            </a>
+
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+
+                <h1>👋 Welcome back, 
+                    <span th:text="${volunteerName}">
+                        Volunteer
+                    </span>!
+                </h1>
+
+                <p>📍 Your City: <strong th:text="${city}">Indore</strong></p>
+                <div class="stats-badges">
+
+                    <div class="stat-badge">
+                        <span class="stat-number" th:text="${myActiveDonations != null ? #lists.size(myActiveDonations) : 0}">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+
+                    <div class="stat-badge">
+                        <span class="stat-number" th:text="${completedDonations != null ? #lists.size(completedDonations) : 0}">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions-->
+        <section class="quick-actions">
+            <h3>🚀 Quick Actions</h3>
+            <div class="actions-grid">
+
+                <!-- Card 1 -->
+                <a href="/volunteer/my-donations" class="action-card donations">
+                    <div class="action-icon">📦</div>
+
+                    <h4>My Donations</h4>
+                    <p>Track all your pickup status</p>
+
+                    <span class="action-btn">View All →</span>
+                </a>
+                
+                <!-- Card 2-->
+                <a href="/volunteer/my-happiness" class="action-card happiness">
+                    <div class="action-icon">❤️</div>
+
+                    <h4>Book of Happiness</h4>
+                    <p>See the joy your deliveries bring</p>
+
+                    <span class="action-btn">View Stories →</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Available Donations-->
+        <section class="donations-section">
+            <h3>🟢 Available Donations <span class="section-subtitle">(Need Your Help)</span></h3>
+
+            <div th:if="${#lists.isEmpty(availableDonations)}" class="empty-state">
+                <p>No donations available in your city right now. Check back soon! ✨</p>
+            </div>
+
+            <div 
+               class="donations-grid" 
+               th:if="${availableDonations != null and not #lists.isEmpty(availableDonations)}">
+
+                <div th:each="d : ${availableDonations}"
+                    th:id="'donation-' + ${d.id}"
+                    class="donation-card available">
+
+                    <div class="donation-header">
+                        <h4 th:text="${d.foodName}">Rice Donation</h4>
+                        <span class="donation-badge">New</span>
+                    </div>
+
+                    <div class="donation-details">
+                        <p><strong>Category:</strong> <span th:text="${d.foodCategory}">Grains</span></p>
+                        <p><strong>Quantity:</strong> <span th:text="${d.quantity}">5kg</span></p>
+                        <p><strong>Address:</strong> <span th:text="${d.pickupAddress}">123 MG Road</span></p>
+                    </div>
+
+                    <form th:action="@{/volunteer/accept/{id}(id=${d.id})}" method="post" class="accept-form">
+                        <button type="submit" class="accept-btn">Accept</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Pickups -->
+        <section class="donations-section">
+            <h3>🟡 My Active Pickups</h3>
+
+                <div id="active-section"
+                    class="donations-grid"
+                th:if="${myActiveDonations != null and not #lists.isEmpty(myActiveDonations)}">
+
+                <div th:each="d : ${myActiveDonations}" class="donation-card active">
+
+                    <div class="donation-header">
+                        <h4 th:text="${d.foodName}">Vegetables</h4>
+                        <span class="status-badge" th:text="${d.status}">ACCEPTED</span>
+                    </div>
+
+                    <div class="donation-details">
+                        <p><strong>Status:</strong> <span th:text="${d.status}">Accepted</span></p>
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <!-- Mark Picked Up -->
+                        <form th:if="${d.status != null and d.status.name() == 'ACCEPTED'}"
+                            th:action="@{/volunteer/pickup/{id}(id=${d.id})}"
+                            method="post">
+
+                            <button type="submit" class="btn-pickup">
+                                Mark Picked Up
+                            </button>
+
+                        </form>
+
+                        <!-- Mark Delivered -->
+                        <form th:if="${d.status != null and d.status.name() == 'PICKED_UP'}"
+                            th:action="@{/volunteer/deliver/{id}(id=${d.id})}"
+                            method="post">
+
+                            <button type="submit" class="btn-deliver">
+                                Mark Delivered
+                            </button>
+
+                        </form>
+                       
+
+                        <!-- Cancel (Only before delivery) -->
+                       <form th:if="${d.status != null and d.status.name() == 'ACCEPTED'}"
+                        th:action="@{/volunteer/donation/{id}/cancel(id=${d.id})}"
+                        method="post">
+
+                            <button type="submit" class="btn-cancel">
+                                Cancel
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div th:if="${myActiveDonations == null or #lists.isEmpty(myActiveDonations)}" 
+            class="empty-state">
+
+                <p>No active pickups. Help feed the hungry today! 🌟</p>
+
+            </div>
+        </section>
+
+        <!-- Completed Deliveries -->
+        <section class="donations-section">
+                <h3>🔵 Completed Deliveries</h3>
+
+                <div id="completed-section"
+                    class="donations-grid"
+                    th:if="${completedDonations != null and not #lists.isEmpty(completedDonations)}">
+
+                    <div th:each="d : ${completedDonations}"
+                        class="donation-card completed">
+
+                        <div class="donation-header">
+                            <h4 th:text="${d.foodName}"></h4>
+                            <span class="status-badge success"
+                                th:text="${d.status}"></span>
+                        </div>
+
+                        <p><strong>Address:</strong>
+                            <span th:text="${d.pickupAddress}"></span>
+                        </p>
+
+                        <!-- Upload Section -->
+                        <div th:if="${d.status.name() == 'DELIVERED'}">
+                        <form th:action="@{/volunteer/donation/{id}/upload(id=${d.id})}"
+                            method="post"
+                            enctype="multipart/form-data">
+
+                            <input type="file" name="image" required>
+
+                            <button type="submit">
+                                Upload Happiness Photo
+                            </button>
+
+                        </form>
+
+                    </div>
+                        
+                        <div th:if="${d.status != null and d.status.name() == 'COMPLETED' and d.completionImagePath != null}">
+                        <p>Photo Uploaded ❤️</p>
+                            <img th:src="@{'/' + ${d.completionImagePath}}"
+                                style="width:200px;border-radius:10px;">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div th:if="${completedDonations == null or #lists.isEmpty(completedDonations)}"
+                    class="empty-state">
+                    <p>No completed deliveries yet. Your first delivery awaits! 🎉</p>
+                </div>
+
+            </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2/dist/stomp.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script th:src="@{/js/alerts.js}"></script>
+
+    <script>
+        const socket = new SockJS('/ws');
+        const stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function () {
+
+            stompClient.subscribe('/topic/donations', function (message) {
+
+                const event = JSON.parse(message.body);
+
+                console.log("Event received:", event);
+
+                switch(event.type) {
+
+                    case "NEW":
+                        addNewDonationCard(event.donationId);
+                        break;
+
+                    case "ACCEPTED":
+                        moveToActiveSection(event.donationId);
+                        break;
+
+                    case "PICKED_UP":
+                        updateStatus(event.donationId, "PICKED_UP");
+                        break;
+
+                    case "COMPLETED":
+                        moveToCompletedSection(event.donationId);
+                        break;
+
+                    case "DELIVERED":
+                        updateStatus(event.donationId, "DELIVERED");
+                        break;
+                }
+            });
+        });
+
+        function addNewDonationCard(id) 
+        {
+            console.log("New donation:", id);
+            // Option 1: fetch single donation via REST endpoint and append
+        }
+
+       function moveToActiveSection(id) 
+       {
+            const card = document.getElementById("donation-" + id);
+
+            if (card) {
+                // remove Accept button
+                const acceptForm = card.querySelector(".accept-form");
+                if (acceptForm) {
+                    acceptForm.remove();
+                }
+
+                // change badge text
+                const badge = card.querySelector(".donation-badge");
+                if (badge) {
+                    badge.innerText = "ACCEPTED";
+                }
+
+                // move to active section
+                document.getElementById("active-section").appendChild(card);
+            }
+        }
+
+        function updateStatus(id, status) 
+        {
+            const badge = document.querySelector("#donation-" + id + " .status-badge");
+            if (badge) {
+                badge.innerText = status;
+            }
+        }
+
+        function moveToCompletedSection(id) 
+        {
+            const card = document.getElementById("donation-" + id);
+            if (card) {
+                document.getElementById("completed-section").appendChild(card);
+            }
+        }
+    </script>
+</body>
+</html>

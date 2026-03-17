@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Become a Volunteer - SayNoHunger</title>
+    <link rel="stylesheet" th:href="@{/css/volunteer-register.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+       
+    <nav class="navbar">
+        <div class="nav-brand">✨ SayNo2Hunger</div>
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn nav-home">🏠 Home</a>
+            <a href="/login" class="nav-btn nav-login">🔐 Login</a>
+            <a href="/logout" class="nav-btn nav-logout">🚪 Logout</a>
+        </div>
+    </nav>
+
+    <main class="volunteer-register-page">
+        <div class="register-container">
+            <h2>🤝 Become a Volunteer</h2>
+
+            <!-- Global Error -->
+            <div class="form-error" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+            <form th:action="@{/volunteer/create}" th:object="${volunteer}" method="post" enctype="multipart/form-data">
+                
+                <!-- NAME -->
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" th:field="*{name}" placeholder="Enter your full name" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" th:field="*{email}" placeholder="Enter your email" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                </div>
+
+                <!-- PHONE -->
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" th:field="*{phone}" placeholder="+91XXXXXXXXXX" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                </div>
+
+                <!-- GENDER -->
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select th:field="*{gender}" required>
+                        <option value="">Select Gender</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                    <p class="field-error" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
+                </div>
+
+                <!-- ADDRESS -->
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea th:field="*{address}" placeholder="Enter full address" rows="3" required></textarea>
+                    <p class="field-error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+                </div>
+
+                <!-- CITY -->
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" th:field="*{city}" placeholder="Enter your city" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+                </div>
+
+                <!-- PINCODE -->
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="text" th:field="*{pinCode}" placeholder="6-digit pincode" maxlength="6" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('pinCode')}" th:errors="*{pinCode}"></p>
+                </div>
+
+                <!-- AADHAAR PHOTO -->
+                <div class="form-group">
+                    <label>Aadhaar Photo (Image only, max 2MB)</label>
+                    <input type="file" th:field="*{aadhaarPhoto}" accept="image/*" required>
+                    <p class="field-error" th:if="${#fields.hasErrors('aadhaarPhoto')}" th:errors="*{aadhaarPhoto}"></p>
+                </div>
+
+                <button type="submit" class="btn-primary">Register as Volunteer</button>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+</body>
+</html>

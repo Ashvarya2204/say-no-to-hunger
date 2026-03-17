@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logged Out</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #fffaf0 50%, #fef9e7 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #ff8c00 0%, #ffb347 50%, #ffd700 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #ffedcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .logout-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(255, 140, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff8c00, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #ff8c00;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .thankyou {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .quote {
+            color: #ff8c00;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 140, 0, 0.05);
+            border-left: 4px solid #ffb347;
+            border-radius: 0 15px 15px 0;
+        }
+
+        
+        .login-btn {
+            display: inline-block !important;
+            padding: 1.3rem 3rem !important;
+            background: linear-gradient(45deg, #ff8c00, #ffb347) !important;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 50px !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            border: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3) !important;
+            margin-top: 2rem !important;
+            position: relative !important;
+            z-index: 10 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.4) !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px) !important;
+        }
+    </style>
+
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+
+    <nav class="navbar">
+        <div class="nav-brand">✨ SayNo2Hunger</div>
+    </nav>
+
+    <div class="container">
+        <div class="logout-card">
+            <div class="success-icon">✓</div>
+            
+            <h2>You have logged out successfully.</h2>
+            
+            <p class="thankyou">Thank you for being part of SayNoHunger.</p>
+            
+            <blockquote class="quote">
+                "Small actions can create big change."
+            </blockquote>
+            
+            <a href="/login" class="login-btn" style="cursor: pointer;">Login Again</a>
+            
+        </div>
+    </div>
+</body>
+</html>

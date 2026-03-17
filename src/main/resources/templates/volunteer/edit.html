@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Edit Volunteer Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/edit-profile.css">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+     
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span>✨ SayNo2Hunger</span>
+        </div>
+        <div class="nav-links">
+
+            <a href="/volunteer/dashboard" class="nav-link profile">🏠Dashboard</a>
+            <a href="/logout" class="nav-link logout">🚪Logout</a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h2>Edit Profile</h2>
+
+        <form th:action="@{/volunteer/update}" method="post" th:object="${volunteer}">
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" th:field="*{phone}">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" th:field="*{gender}">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" th:field="*{address}">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" th:field="*{city}">
+            </div>
+
+            <div class="form-group">
+                <label for="pinCode">Pincode:</label>
+                <input type="text" id="pinCode" th:field="*{pinCode}">
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+
+        </form>
+    </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+    
+</body>
+</html>

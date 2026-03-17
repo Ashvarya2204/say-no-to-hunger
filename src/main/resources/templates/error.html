@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">✨ SayNo2Hunger</div>
+
+        <div class="nav-right">
+            <a th:href="@{/}" class="nav-btn">🏠Home</a>
+
+            <a th:href="@{/login}" class="nav-btn">🔐Login</a>
+
+            <a href="@{/logout}" class="nav-btn">🚪Logout</a>
+        </div>
+    </nav>
+
+    <div class="error-page">
+
+        <div class="error-container">
+
+            <div class="error-icon">⚠</div>
+
+            <h1>Something went wrong</h1>
+
+            <p class="error-message"
+            th:text="${errorMessage}">
+            </p>
+
+            <div class="error-code" th:if="${errorCode}">
+                Code: <span th:text="${errorCode}"></span>
+            </div>
+
+            <div class="error-actions">
+                    <a th:href="@{/login}"
+                        class="btn-secondary">
+                        Go to Login
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Edit Donation</title>
+        <link rel="stylesheet" th:href="@{/css/main.css}">
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-brand">✨SayNo2Hunger</div>
+            <div class="nav-links">
+
+                <a th:href="@{/donor/dashboard}" class="nav-btn dashboard">🏠Dashboard</a>
+
+            </div>
+        </nav>
+
+        <div class="page-container">
+
+            <div class="details-container">
+
+                <h2>Edit Donation</h2>
+
+                <form th:action="@{'/donor/donation/' + ${donation.id} + '/update'}"
+                    method="post">
+
+                    <p>
+                    <strong>Food Name</strong>
+
+                    <input type="text"
+                        name="foodName"
+                        th:value="${donation.foodName}"
+                        required>
+                    </p>
+
+                    <p>
+                    <strong>Quantity</strong>
+
+                    <input type="number"
+                        name="quantity"
+                        th:value="${donation.quantity}"
+                        required>
+                    </p>
+
+                    <p>
+                    <strong>Pickup Address</strong>
+
+                    <input type="text"
+                        name="pickupAddress"
+                        th:value="${donation.pickupAddress}"
+                        required>
+                    </p>
+
+                    <p>
+                    <strong>Expiry Time</strong>
+
+                    <input type="datetime-local"
+                        name="expiryTime"
+                        th:value="${#temporals.format(donation.expiryTime,'yyyy-MM-dd''T''HH:mm')}"
+                        required>
+                    </p>
+
+                    <div class="btn-form">
+
+                        <button type="submit" class="btn-success">
+
+                        Update Donation
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

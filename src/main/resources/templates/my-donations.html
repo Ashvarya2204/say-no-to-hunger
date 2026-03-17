@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+
+    <title>SayNoHunger - My Donations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/my-donations.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+    
+    <nav class="navbar">
+        <div class="logo">✨ SayNo2Hunger</div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a th:href="@{/donor/dashboard}" class="nav-btn">
+                    📊 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a th:href="@{/logout}" class="logout-btn">
+                    🚪Logout
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    
+    <div class="container">
+        <h2>My Donations</h2>
+
+        <div th:if="${#lists.isEmpty(donations)}" class="no-donations">
+            <p>No donations yet. Start making a difference!</p>
+        </div>
+
+        <div th:each="d : ${donations}">
+            <div class="donation-card">
+
+                <p>
+                    <strong>Food:</strong> 
+                    <span th:text="${d.foodName}"></span>
+                </p>
+
+                <p>
+                    <strong>Quantity:</strong> 
+                    <span th:text="${d.quantity}"></span>
+                </p>
+
+                <p>
+                    <strong>Status:</strong> 
+                    <span th:text="${d.status}" 
+                          th:classappend="${d.status != null} ? 'status-' + ${#strings.toLowerCase(d.status.name())} : '' ">
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Pickup Address:</strong> 
+                    <span th:text="${d.pickupAddress}"></span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

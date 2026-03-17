@@ -1,0 +1,203 @@
+:root {
+    --yellow-primary: linear-gradient(90deg, #FFD54F, #FFCA28, #FFB300);
+    --orange-accent: #FF8C42;
+    --white-glass: rgba(255, 255, 255, 0.95);
+    --shadow-soft: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.profile-navbar {
+    background: var(--yellow-primary);
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 70px;
+}
+
+.nav-brand {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #212121;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+/* Main Content */
+.profile-container {
+    margin: 110px auto 40px;
+    max-width: 600px;
+    background: var(--white-glass);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 50px 40px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--yellow-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.profile-info {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 5px solid var(--orange-accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.info-label {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.info-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-edit {
+    flex: 1;
+    max-width: 200px;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #FF8C42, #FF6B35);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(255,140,66,0.4);
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-edit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(255,140,66,0.5);
+}
+
+.btn-delete {
+    flex: 1;
+    max-width: 200px;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #FF4757, #FF3838);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(255,71,87,0.4);
+    transition: all 0.3s;
+}
+
+.btn-delete:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(255,71,87,0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-navbar {
+        padding: 12px 25px;
+    }
+    
+    .nav-brand {
+        font-size: 1.6rem;
+    }
+    
+    .profile-container {
+        margin: 100px 20px 30px;
+        padding: 40px 30px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}

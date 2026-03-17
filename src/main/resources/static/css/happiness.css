@@ -1,0 +1,275 @@
+
+.navbar {
+    background: linear-gradient(135deg, #FF8C00 0%, #FFB347 50%, #FF8C00 100%);
+    padding: 16px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid rgba(255, 215, 0, 0.3);
+}
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #000000 !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    letter-spacing: -0.3px;
+}
+
+.nav-right { display: flex; gap: 14px; align-items: center; }
+
+.nav-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.92);
+    color: #000000 !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #000000 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+:root {
+    --yellow-primary: #FFD700;
+    --yellow-light: #FFE082;
+    --orange-primary: #FF8C00;
+    --orange-light: #FFE0B2;
+    --glass-white: rgba(255, 255, 255, 0.95);
+    --glass-shadow: 0 25px 70px rgba(0,0,0,0.12);
+    --border-radius: 28px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.happiness-main {
+    padding: 50px 5% 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--yellow-light) 0%, #FFF8E1 100%);
+    min-height: calc(100vh - 85px);
+}
+
+.hero-quote {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--orange-light), var(--yellow-light));
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px);
+}
+
+.hero-quote blockquote {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #D97706;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.author {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--orange-primary);
+    font-weight: 500;
+    margin-top: 15px;
+    font-style: normal;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--orange-primary), var(--yellow-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 50px;
+    font-weight: 800;
+    text-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--glass-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.empty-state p {
+    font-size: 1.8rem;
+    color: var(--orange-primary);
+    margin: 0 0 20px 0;
+}
+
+.donations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.happiness-card {
+    background: var(--glass-white);
+    border-radius: var(--border-radius);
+    padding: 35px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.happiness-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--yellow-primary), var(--orange-primary));
+}
+
+.happiness-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 35px 90px rgba(0,0,0,0.18);
+}
+
+.food-name {
+    color: var(--orange-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.city-info {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.image-container {
+    width: 100%;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    margin: 0 auto;
+    display: block;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.happiness-card:hover .image-container img {
+    transform: scale(1.05);
+}
+
+/* Motivational End Card */
+.motivational-card {
+    background: linear-gradient(135deg, var(--yellow-light), var(--orange-light));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.motiv-icon {
+    font-size: 6rem;
+    filter: drop-shadow(0 8px 25px rgba(255, 215, 0, 0.4));
+}
+
+.motivational-card h3 {
+    color: var(--orange-primary);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.motiv-quote {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: #D97706;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0;
+}
+
+.motiv-sub {
+    font-size: 1.4rem;
+    color: var(--orange-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .happiness-main {
+        padding: 90px 5% 40px;
+    }
+    
+    .page-title {
+        font-size:1.5rem;
+    }
+    
+    .hero-quote blockquote {
+        font-size: 1.8rem;
+    }
+    
+    .donations-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .happiness-card {
+        padding: 30px 25px;
+    }
+    
+    .motiv-icon {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size:1.5rem;
+    }
+    
+    .hero-quote {
+        padding: 30px 15px;
+    }
+    
+    .hero-quote blockquote {
+        font-size: 1.6rem;
+    }
+}

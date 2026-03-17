@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Dashboard - SayNoHunger</title>
+    <link rel="stylesheet" th:href="@{/css/select-dashboard.css}">
+</head>
+<body>
+    
+    <!-- Navbar-->
+    <nav class="navbar">
+        <div class="nav-brand">✨ SayNo2Hunger</div>
+        <div class="nav-buttons">
+            <a href="/logout" class="nav-logout">Logout</a>
+            <a href="/" class="nav-logout">Home</a>
+            <a href="/login" class="nav-logout">Login</a>
+        </div>
+    </nav>
+
+    <main class="select-main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">🌟 Choose Your Role</h1>
+                <p class="hero-subtitle">Join the fight against hunger as a Donor or Volunteer</p>
+            </div>
+        </section>
+
+        <!-- Dashboard Cards -->
+        <section class="dashboard-grid">
+            <a href="/donor/dashboard" class="dashboard-card donor">
+                <div class="card-icon">🍎</div>
+                <h3>Donor Dashboard</h3>
+                <p>Share your surplus food with those in need</p>
+            </a>
+
+            <a href="/volunteer/dashboard" class="dashboard-card volunteer">
+                <div class="card-icon">🚚</div>
+                <h3>Volunteer Dashboard</h3>
+                <p>Deliver food and make a real difference</p>
+            </a>
+        </section>
+
+        <!-- Mission Statement -->
+        <section class="mission-section">
+            <div class="mission-content">
+                <h2>Every Bite Counts</h2>
+                <p>Join thousands of people fighting hunger in India. Together, we're creating smiles one meal at a time.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

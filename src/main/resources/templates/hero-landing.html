@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SayNo2Hunger - End Hunger Together</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" 
+       rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/hero-complete.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+
+    <nav class="navbar">
+        <a href="#" class="logo">✨ SayNo2Hunger</a>
+
+        <div class="nav-right">
+            <div class="dropdown">
+
+                <button class="nav-btn register-btn">Register ▾</button>
+
+                <div class="dropdown-menu">
+
+                    <a th:href="@{/donor/create}" class="dropdown-item">
+                        <span>👨‍🍳 Register as Donor</span>
+                    </a>
+
+                    <a th:href="@{/volunteer/create}" class="dropdown-item">
+                        <span>🤝 Register as Volunteer</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <a th:href="@{/login}" class="nav-btn login-btn">Login</a>
+
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Together We Can <span>End Hunger</span></h1>
+        <p>A smart platform connecting food donors and volunteers to create real impact.</p>
+    </section>
+
+   
+    <section class="blog-section">
+        <h2>Hunger Crisis in India</h2>
+        <div class="card-grid">
+            <div class="blog-card">
+
+                <div class="card-image">
+                    <img th:src="@{/images/hunger1.jpg}" alt="Hunger Crisis">
+                </div>
+
+                <div class="card-content">
+                    <h3>Millions Sleep Hungry</h3>
+                    <p>India ranks among countries facing severe food insecurity.</p>
+                </div>
+
+            </div>
+
+            <div class="blog-card">
+
+                <div class="card-image">
+                    <img th:src="@{/images/hunger2.jpg}" alt="Food Waste">
+                </div>
+
+                <div class="card-content">
+                    <h3>Food Wastage Problem</h3>
+                    <p>40% of food is wasted while people starve.</p>
+                </div>
+
+            </div>
+
+            <div class="blog-card">
+
+                <div class="card-image">
+                    <img th:src="@{/images/hunger3.jpg}" alt="Be The Change">
+                </div>
+
+                <div class="card-content">
+                    <h3>Be The Change</h3>
+                    <p>Donate excess food and help the needy.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="flow-section">
+
+        <h2>How It Works</h2>
+        <p class="section-subtitle">Five simple steps to end hunger</p>
+
+        <div class="flow-diagram">
+            <div class="flow-step">
+                <div class="step-icon">🍱</div>
+                    <h3>Donor Posts Food</h3>
+                    <p>Restaurants post excess food</p>
+            </div>
+
+            <div class="flow-connector"></div>
+                <div class="flow-step">
+                    <div class="step-icon">📱</div>
+                    <h3>Alert Volunteers</h3>
+                    <p>Nearby volunteers notified</p>
+            </div>
+
+            <div class="flow-connector"></div>
+                <div class="flow-step">
+                    <div class="step-icon">🤝</div>
+                    <h3>Volunteer Picks Up</h3>
+                    <p>Collects food from donor</p>
+            </div>
+
+            <div class="flow-connector"></div>
+            <div class="flow-step">
+                <div class="step-icon">❤️</div>
+                <h3>Hunger Ends</h3>
+                <p>Food reaches those in need</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 SayNo2Hunger | Built with ❤️ to end hunger</p>
+            <p>Made with love for India | Contact: support@sayno2hunger.com</p>
+        </div>
+    </footer>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+    
+</body>
+</html>

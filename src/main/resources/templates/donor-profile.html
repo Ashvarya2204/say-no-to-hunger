@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Profile - SayNo2Hunger</title>
+    <link rel="stylesheet" th:href="@{/css/donor-profile.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+   
+    <nav class="profile-navbar">
+        <div class="nav-brand">✨ SayNo2Hunger</div>
+        <div class="nav-buttons">
+            <a href="/donor/dashboard" class="nav-btn">🏠 Home</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="nav-btn">🚪 Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2>👤 Donor Profile</h2>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-item">
+                <div class="info-label">Full Name</div>
+                <div class="info-value" th:text="${donor.name}">John Doe</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value" th:text="${donor.email}">john@example.com</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">Phone</div>
+                <div class="info-value" th:text="${donor.phone}">+91 98765 43210</div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a th:href="@{/donor/edit}" class="btn-edit">✏️ Edit Profile</a>
+            <form th:action="@{/donor/delete}" method="post" style="display: inline; flex: 1; max-width: 200px;">
+                <input type="hidden" name="email" th:value="${donor.email}" />
+                <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete your account?')">🗑️ Delete Account</button>
+            </form>
+        </div>
+    </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+
+</body>
+</html>

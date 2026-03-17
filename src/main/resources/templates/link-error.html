@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Magic Link Error</title>
+    <style>
+        body{
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg,#ff7a18,#ffb347);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .card{
+            width: 90%;
+            max-width: 400px;
+
+            background:white;
+            padding:40px;
+            border-radius:16px;
+            text-align:center;
+            box-shadow:0 15px 40px rgba(0,0,0,0.2);
+        }
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 25px;
+            background:#ff7a18;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="card">
+        <h2>❌ Magic Link Already Used</h2>
+        <p>This link cannot be used again.</p>
+        <p>Please generate a new login link.</p>
+
+        <a href="/login" class="btn">Generate New Magic Link</a>
+    </div>
+
+</body>
+</html>

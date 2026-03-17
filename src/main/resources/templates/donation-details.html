@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Donation Details - SayNoHunger</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+
+<body th:attr="data-success=${success}, data-error=${error}">
+
+    <nav class="navbar">
+        <div class="nav-brand">✨SayNo2Hunger</div>
+        <div class="nav-links">
+
+            <a href="/donor/dashboard" class="nav-btn dashboard">🏠Dashboard</a>
+            <a href="/logout" class="nav-btn logout">🚪Logout</a>
+
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="details-container">
+
+            <h2>Donation Details</h2>
+
+            <p>
+                <strong>Food Name:</strong> 
+                <span th:text="${donation.foodName}"></span>
+            </p>
+
+            <p>
+                <strong>Category:</strong> 
+                <span th:text="${donation.foodCategory}"></span>
+            </p>
+
+            <p>
+                <strong>Quantity:</strong> 
+                <span th:text="${donation.quantity}"></span>
+            </p>
+
+            <p>
+                <strong>Pickup Address:</strong> 
+                <span th:text="${donation.pickupAddress}"></span>
+            </p>
+
+            <p>
+                <strong>Contact:</strong> 
+                <span th:text="${donation.contactNumber}"></span>
+            </p>
+
+            <p>
+                <strong>Status:</strong> 
+                <span th:text="${donation.status}" th:class="'status ' + ${donation.status}"></span>
+            </p>
+
+           <div th:if="${donation.status.name() == 'PENDING'}" class="btn-form">
+                <a th:href="@{/donor/donation/{id}/edit(id=${donation.id})}" class="btn-success">
+                    ✏️ Update Donation
+                </a>
+            </div>
+
+            <!-- CANCEL BUTTON-->
+            <div th:if="${donation.status != null and 
+                donation.status.name() != 'PICKED_UP' and
+                donation.status.name() != 'DELIVERED' and
+                donation.status.name() != 'COMPLETED'}">
+                
+                <form 
+                    th:action="@{'/donor/donation/' + ${donation.id} + '/cancel'}" 
+                    method="post" class="btn-form">
+
+                    <button type="submit" class="cancel-btn">
+                        Cancel Donation
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- Assigned Volunteer -->
+
+            <div th:if="${donation.volunteer != null}" class="volunteer-section">
+                <h3>👤 Assigned Volunteer</h3>
+
+                <p>
+                    <strong>Name:</strong> 
+                    <span th:text="${donation.volunteer.name}"></span>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong> 
+                    <span th:text="${donation.volunteer.phone}"></span>
+                </p>
+
+                <p>
+                    <strong>Status:</strong> 
+                    <span th:text="${donation.status}"></span>
+                </p>
+
+            </div>
+
+            <div th:if="${donation.completionImagePath != null}">
+                <h3>🎉 Donation Delivered Successfully</h3>
+
+                <img th:src="@{'/' + ${donation.completionImagePath}}"
+                    style="max-width:300px; border-radius:10px;" />
+
+                <p>Thank you for spreading happiness ❤️</p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+    <script>
+        var socket = new SockJS('/ws');
+        var stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function () {
+            stompClient.subscribe('/topic/donations', function () {
+                location.reload();
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,6 @@
+.sn2h-popup {
+    border-radius: 15px;
+    border: 2px solid #FFA500;
+    box-shadow: 0 10px 40px rgba(255,165,0,0.4);
+    font-family: 'Poppins', sans-serif;
+}
