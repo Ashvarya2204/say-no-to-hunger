@@ -68,7 +68,7 @@ public class DonationService
 
                donation.setDonor(donor);
                 
-               donation.setCity(donation.getCity());
+               donation.setCity(donation.getCity().trim().toLowerCase());
 
                logger.debug("City saved: {}", donation.getCity());
 
@@ -86,6 +86,8 @@ public class DonationService
                         "New donation available!"
                 )
                 );
+
+                logger.debug("City from UI: {}", donation.getCity());
 
                 notifyVolunteers(saved);
 
@@ -125,7 +127,8 @@ public class DonationService
                 logger.debug("Entered getDonorDonations()");
                 logger.debug("Fetching donations for donor: {}", donor.getEmail());
 
-                List<Donation> list = donationRepository.findByDonor_Id(donor.getId());
+                List<Donation> list =
+                        donationRepository.findByDonorAndStatusNot(donor, DonationStatus.EXPIRED);
                 
                 logger.debug("Records fetched from DB: {}", list.size());
 
@@ -410,13 +413,20 @@ public class DonationService
         //notification for saved 
        private void notifyVolunteers(Donation donation) 
        {
+                logger.debug("notifyVolunteers() called");
 
                 String city = donation.getCity();
+
+                logger.debug("Donation city: {}", city);
 
                 List<User> volunteers =
                         volunteerProfileRepository.findActiveVolunteersByCity(city);
 
+                logger.debug("Volunteers found: {}", volunteers.size());
+
                 for (User volunteer : volunteers) {
+
+                       logger.debug("Sending email to: {}", volunteer.getEmail());
 
                         emailService.sendEmail(
                                 volunteer.getEmail(),

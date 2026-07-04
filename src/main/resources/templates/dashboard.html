@@ -487,6 +487,16 @@
             font-weight: 600;
             color: #333;
         }
+        
+        .expired-badge {
+            background: #ff4d4d;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
 
         @keyframes popupScale {
             to { transform: scale(1); }
@@ -591,24 +601,30 @@
             <p>Quantity: <span th:text="${donation.quantity}">0</span></p>
 
             <p>Status: 
-                <span th:classappend="${donation.status.name() == 'PENDING'} ? 'status-pending' : 
-                                      (${donation.status.name() == 'COMPLETED'} ? 'status-completed' : 
-                                      'status-cancelled')"
-                      th:text="${donation.status}">
-                      Pending
+               <span th:classappend="
+                    ${donation.status.name() == 'PENDING'} ? 'status-pending' :
+                    (${donation.status.name() == 'COMPLETED'} ? 'status-completed' :
+                    (${donation.status.name() == 'EXPIRED'} ? 'status-expired' :
+                    'status-cancelled'))"
+                    th:text="${donation.status}">
                 </span>
             </p>
+            
+            <!--Expired tag -->
+            <span th:if="${donation.status.name() == 'EXPIRED'}"
+                class="expired-badge">
+                ⏳ EXPIRED
+            </span>
 
             <div class="button-group">
 
                     <!--View Details-->
 
-                    <a th:if="${donation.status.name() == 'PENDING' or donation.status.name() == 'ACCEPTED'}" 
-                        th:href="@{/donor/donation/{id}(id=${donation.id})}" 
-                        class="view-details-btn">
+                    <a th:href="@{/donor/donation/{id}(id=${donation.id})}" 
+                    class="view-details-btn">
                         👁️ View Details
                     </a>
-                   
+                                    
                     <!-- EDIT BUTTON -->
                     <a th:if="${donation.status.name() == 'PENDING'}"
                     th:href="@{/donor/donation/{id}(id=${donation.id})}"

@@ -27,68 +27,49 @@ public class DonationExpiryScheduler
         this.emailService = emailService;
     }
 
-        @Scheduled(fixedRate =300000)//5mins
+        @Scheduled(fixedRate = 600000)
         @Transactional
         public void expireOldDonations() 
-        {      
+        {
+
                 logger.info("Donation expiry scheduler started");
 
-                List<Donation> expired =
-                        donationRepository.findByStatusAndExpiryTimeBefore(
-                                DonationStatus.PENDING,
-                                LocalDateTime.now());
-
-                List<Donation> acceptedExpired =
-                        donationRepository.findByStatusAndExpiryTimeBefore(
-                                DonationStatus.ACCEPTED,
-                                LocalDateTime.now());
+                List<Donation> expiredDonations =
+                        donationRepository.findAllExpired(LocalDateTime.now());
 
                 int totalExpired = 0;
 
-                for (Donation donation : expired) 
+                for (Donation donation : expiredDonations) 
                 {
-
-                        donation.setStatus(DonationStatus.EXPIRED);
-                        totalExpired++;
-
-                        emailService.sendEmail(
-                                donation.getDonor().getEmail(),
-                                "Donation Expired",
-                                "Your donation ID "
-                                        + donation.getId()
-                                        + " expired automatically."
-                        );
-                }
-
-                for (Donation donation : acceptedExpired) 
-                {
-
-                        User volunteer = donation.getVolunteer(); // store before removing
+                        User volunteer = donation.getVolunteer();
 
                         donation.setStatus(DonationStatus.EXPIRED);
                         donation.setVolunteer(null);
+
                         totalExpired++;
 
+                        // Email donor
                         emailService.sendEmail(
                                 donation.getDonor().getEmail(),
                                 "Donation Expired",
-                                "Accepted donation ID "
-                                        + donation.getId()
-                                        + " expired."
+                                "Donation ID " + donation.getId() + " expired automatically."
                         );
 
-                        if (volunteer != null) {
+                        // Email volunteer (if exists)
+                        if (volunteer != null) 
+                        {
                                 emailService.sendEmail(
                                         volunteer.getEmail(),
                                         "Donation Expired",
-                                        "Donation ID "
-                                                + donation.getId()
-                                                + " expired."
+                                        "Donation ID " + donation.getId() + " expired."
                                 );
                         }
                 }
 
-               logger.info("Total expired donations: {}", totalExpired);
-               logger.info("Donation expiry scheduler finished");
+                // ✅ VERY IMPORTANT (you missed this earlier)
+                donationRepository.saveAll(expiredDonations);
+
+                logger.info("Total expired donations: {}", totalExpired);
+                logger.info("Donation expiry scheduler finished");
         }
 }

@@ -14,13 +14,6 @@ public interface VolunteerProfileRepository extends JpaRepository<VolunteerProfi
     
     Optional<VolunteerProfile> findByUserEmail(String email);
 
-    @Query("""
-       SELECT vp.user 
-       FROM VolunteerProfile vp
-       WHERE LOWER(vp.city) = LOWER(:city)
-       AND vp.active = true
-       
-       """)
-
+    @Query("SELECT v.user FROM VolunteerProfile v WHERE LOWER(v.city) = LOWER(:city)")
     List<User> findActiveVolunteersByCity(@Param("city") String city);
 }

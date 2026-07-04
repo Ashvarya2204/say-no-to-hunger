@@ -12,7 +12,6 @@ import com.saynotohunger.Entity.User;
 
 public interface DonationRepository extends JpaRepository<Donation, Long> 
 {
-
     List<Donation> findByDonor(User donor);
 
     List<Donation> findByDonor_Id(Long donorId);
@@ -72,4 +71,10 @@ public interface DonationRepository extends JpaRepository<Donation, Long>
     Optional<Donation> findByIdWithVolunteer(@Param("id") Long id);
 
     List<Donation> findByVolunteer(User volunteer);
+
+    List<Donation> findByDonorAndStatusNot(User donor, DonationStatus status);
+
+    @Query("SELECT d FROM Donation d WHERE d.expiryTime < :now AND (d.status = 'PENDING' OR d.status = 'ACCEPTED')")
+    List<Donation> findAllExpired(@Param("now") LocalDateTime now);
+    
 }

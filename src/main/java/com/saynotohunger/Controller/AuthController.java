@@ -67,11 +67,6 @@ public class AuthController
             //magiclinkservice will be called
             magicLinkService.sendMagicLink(email.trim());
 
-            // Send message to UI
-            /*m.addAttribute("message","Magic link send !Check your email");
-            m.addAttribute("showTimer", true);
-            m.addAttribute("email", email.trim());*/
-
            m.addAttribute(
                 "success",
                 "Magic link sent! Check your email 📩"
@@ -172,7 +167,8 @@ public class AuthController
        logger.debug("Checking login status for email: {}", email);
 
         Optional<LoginToken> tokenOpt=
-          loginTokenRepository.findTopByEmailOrderByCreatedAtDesc(email);//fetch latest login token for that email by this method
+          loginTokenRepository.findTopByEmailOrderByCreatedAtDesc(email);
+          //fetch latest login token for that email by this method
 
         if(tokenOpt.isPresent() && Boolean.TRUE.equals(tokenOpt.get().getVerified()))
             return "VERIFIED";
