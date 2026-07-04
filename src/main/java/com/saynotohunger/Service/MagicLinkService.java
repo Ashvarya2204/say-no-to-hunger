@@ -11,7 +11,9 @@ import com.saynotohunger.Entity.LoginToken;
 import com.saynotohunger.Entity.User;
 import com.saynotohunger.dao.LoginTokenRepository;
 import com.saynotohunger.dao.UserRepository;
-import com.saynotohunger.Exception.BusinessException; 
+import com.saynotohunger.Exception.BusinessException;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;     
 import org.springframework.mail.javamail.JavaMailSender; 
 
@@ -23,6 +25,9 @@ public class MagicLinkService
     private final UserRepository userRepository;
     private final LoginTokenRepository loginTokenRepository;
     private final JavaMailSender javaMailSender;
+
+    @Value("${app.base-url}")
+    private String baseUrl;
 
     public MagicLinkService(UserRepository userRepository,LoginTokenRepository loginTokenRepository,
                         JavaMailSender javaMailSender)
@@ -58,7 +63,7 @@ public class MagicLinkService
 
         User user =userOpt.get();//only for registered one
 
-        logger.warn("User not found in DB: {}", email);
+        logger.debug("User found in DB: {}", email);
 
         //Generted token
         String token = UUID.randomUUID().toString().replace("-","");
@@ -76,7 +81,9 @@ public class MagicLinkService
         loginTokenRepository.save(loginToken);
 
         //build magic logic 
-        String magicLink = "https://scabbily-avifaunal-pearly.ngrok-free.dev/auth/login?token=" + token;
+        //String magicLink = "https://scabbily-avifaunal-pearly.ngrok-free.dev/auth/login?token=" + token;
+
+        String magicLink = baseUrl + "/auth/login?token=" + token;
 
        logger.debug("Magic link created for {}", email);
 
@@ -102,6 +109,7 @@ public class MagicLinkService
        catch (Exception e) 
         {
             logger.error("❌ Email failed: {}", e.getMessage());
+            logger.error("Email failed", e);
             logger.warn("Magic link fallback for {}", email);
             logger.warn("Link: {}", magicLink);
             logger.warn("Expires: {}", loginToken.getExpiresAt());
