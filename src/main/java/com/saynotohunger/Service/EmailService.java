@@ -29,7 +29,19 @@ public class EmailService
             logger.debug("To: {}", to);
             logger.debug("Subject: {}", subject);
 
+            /*SimpleMailMessage message = new SimpleMailMessage();
+                message.setTo(to);
+                message.setSubject(subject);
+                message.setText(body);
+
+                javaMailSender.send(message); */
+
             SimpleMailMessage message = new SimpleMailMessage();
+
+            logger.info("MAIL_USERNAME at emailservice= {}", System.getenv("MAIL_USERNAME"));
+            logger.info("MAIL_PASSWORD exists emailservice= {}", System.getenv("MAIL_PASSWORD") != null);
+
+            message.setFrom("aishwaryapat932@gmail.com"); // Your verified Brevo sender
             message.setTo(to);
             message.setSubject(subject);
             message.setText(body);

@@ -88,7 +88,8 @@ public class DonorService
     @Transactional
     public void deleteDonor(String email)
     {
-        User user=userRepository.findByEmail(email).orElseThrow(()->new RuntimeException("Donor not found"));
+        User user=userRepository.findByEmail(email)
+        .orElseThrow(()->new RuntimeException("Donor not found"));
 
         user.setIsActive(false);
         user.setUpdatedAt(LocalDateTime.now());

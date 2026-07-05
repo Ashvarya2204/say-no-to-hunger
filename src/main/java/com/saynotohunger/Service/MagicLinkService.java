@@ -58,7 +58,8 @@ public class MagicLinkService
             logger.warn("User not found in DB: {}", email);
             logger.warn("Registration required of email:{}",email);
         
-          throw new BusinessException("Please register first as Donor or Volunteer!", "USER_NOT_FOUND");
+          throw new BusinessException("Please register first as Donor or Volunteer!", 
+          "USER_NOT_FOUND");
         }
 
         User user =userOpt.get();//only for registered one
@@ -83,14 +84,20 @@ public class MagicLinkService
         //build magic logic 
         //String magicLink = "https://scabbily-avifaunal-pearly.ngrok-free.dev/auth/login?token=" + token;
 
-        String magicLink = baseUrl + "/auth/login?token=" + token;
+    String magicLink = baseUrl + "/auth/login?token=" + token;
 
        logger.debug("Magic link created for {}", email);
 
        logger.debug("Magic link created {}",magicLink);
 
         try {
+
+            logger.info("MAIL_USERNAME emailservice= {}", System.getenv("MAIL_USERNAME"));
+            logger.info("MAIL_PASSWORD exists emailservice= {}", System.getenv("MAIL_PASSWORD") != null);
+
             SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom("aishwaryapat932@gmail.com");   // Add this line
+
             message.setTo(email);
             message.setSubject("✨ SayNo2Hunger - Your Magic Login Link");
             
