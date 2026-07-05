@@ -550,3 +550,233 @@ Caused by: java.lang.IllegalArgumentException: URL must start with 'jdbc'
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.1.13.jar:6.1.13]
 	... 38 common frames omitted
 
+2026-07-05T11:21:22.901+05:30  INFO 8796 --- [saynotohunger] [restartedMain] c.s.SaynotohungerApplication             : Starting SaynotohungerApplication using Java 21 with PID 8796 (C:\projects\saynotohunger\target\classes started by jidab in C:\projects\saynotohunger)
+2026-07-05T11:21:22.911+05:30 DEBUG 8796 --- [saynotohunger] [restartedMain] c.s.SaynotohungerApplication             : Running with Spring Boot v3.3.4, Spring v6.1.13
+2026-07-05T11:21:22.924+05:30  INFO 8796 --- [saynotohunger] [restartedMain] c.s.SaynotohungerApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-07-05T11:21:23.324+05:30  INFO 8796 --- [saynotohunger] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-05T11:21:23.328+05:30  INFO 8796 --- [saynotohunger] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-05T11:21:26.231+05:30  INFO 8796 --- [saynotohunger] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-05T11:21:26.395+05:30  INFO 8796 --- [saynotohunger] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 5 JPA repository interfaces.
+2026-07-05T11:21:30.462+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 1111 (http)
+2026-07-05T11:21:30.517+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-05T11:21:30.519+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-07-05T11:21:30.722+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-07-05T11:21:30.724+05:30  INFO 8796 --- [saynotohunger] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7394 ms
+2026-07-05T11:21:32.868+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-05T11:21:32.955+05:30  INFO 8796 --- [saynotohunger] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-05T11:21:33.484+05:30  INFO 8796 --- [saynotohunger] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@340da227
+2026-07-05T11:21:33.489+05:30  INFO 8796 --- [saynotohunger] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-05T11:21:40.521+05:30  INFO 8796 --- [saynotohunger] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-05T11:21:51.654+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-05T11:21:57.825+05:30  WARN 8796 --- [saynotohunger] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-05T11:21:58.029+05:30  WARN 8796 --- [saynotohunger] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c62230eb-3048-4575-862b-dbcd3d219998
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-07-05T11:22:00.637+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-05T11:22:03.721+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-07-05T11:22:04.067+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 1111 (http) with context path '/'
+2026-07-05T11:22:04.076+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-07-05T11:22:04.079+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5a0704d6]]
+2026-07-05T11:22:04.084+05:30  INFO 8796 --- [saynotohunger] [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-07-05T11:22:04.128+05:30  INFO 8796 --- [saynotohunger] [restartedMain] c.s.SaynotohungerApplication             : Started SaynotohungerApplication in 44.43 seconds (process running for 45.788)
+2026-07-05T11:22:04.192+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-1] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler started
+2026-07-05T11:22:04.588+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.TokenCleanupScheduler      : Expired login tokens cleaned up
+2026-07-05T11:22:04.604+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-1] c.s.scheduler.DonationExpiryScheduler    : Total expired donations: 0
+2026-07-05T11:22:04.606+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-1] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler finished
+2026-07-05T11:22:04.628+05:30  INFO 8796 --- [saynotohunger] [restartedMain] c.saynotohunger.config.RoleInitializer   : Default roles checked or created
+2026-07-05T11:22:14.852+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-05T11:22:27.294+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Entered sendMagicLink()
+2026-07-05T11:22:27.298+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Email received from UI: aishwaryapat932@gmail.com
+2026-07-05T11:22:27.313+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Entered sendMagicLink()
+2026-07-05T11:22:27.314+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Email received: aishwaryapat932@gmail.com
+2026-07-05T11:22:27.314+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Processing magic link request for aishwaryapat932@gmail.com
+2026-07-05T11:22:27.489+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : User found in DB: aishwaryapat932@gmail.com
+2026-07-05T11:22:27.492+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : User found in DB: aishwaryapat932@gmail.com
+2026-07-05T11:22:27.680+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Magic link created for aishwaryapat932@gmail.com
+2026-07-05T11:22:27.680+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Magic link created http://localhost:1111/auth/login?token=af26691ceb3e45ba8561be1ffe5da328
+2026-07-05T11:22:27.682+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : MAIL_USERNAME emailservice= b0e514001@smtp-brevo.com
+2026-07-05T11:22:27.683+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : MAIL_PASSWORD exists emailservice= true
+2026-07-05T11:22:30.710+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Attempting to send email to: aishwaryapat932@gmail.com
+2026-07-05T11:22:30.712+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : ✅ Email sent to registered user: aishwaryapat932@gmail.com
+2026-07-05T11:25:23.328+05:30  WARN 8796 --- [saynotohunger] [http-nio-1111-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [273] milliseconds.
+2026-07-05T11:25:23.627+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : verifyMagicLink() called
+2026-07-05T11:25:23.628+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : AuthController verifyMagicLink hit
+2026-07-05T11:25:23.631+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Token received: af26691ceb3e45ba8561be1ffe5da328
+2026-07-05T11:25:23.744+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Entered verifyTokenAndLogin()
+2026-07-05T11:25:23.745+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Token received for verification
+2026-07-05T11:25:24.147+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Token fetched from DB
+2026-07-05T11:25:24.149+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Token used: false
+2026-07-05T11:25:24.152+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Token expires at: 2026-07-05T11:32:27.493635
+2026-07-05T11:25:24.272+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : User fetched: aishwaryapat932@gmail.com
+2026-07-05T11:25:24.273+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : Marking token as used
+2026-07-05T11:25:24.404+05:30  INFO 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Service.MagicLinkService             : User successfully authenticated:aishwaryapat932@gmail.com
+2026-07-05T11:25:24.780+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : User authenticated: aishwaryapat932@gmail.com
+2026-07-05T11:25:24.782+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : User roles: [com.saynotohunger.Entity.Role@6bbdc95f, com.saynotohunger.Entity.Role@193b3ae2]
+2026-07-05T11:25:24.847+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Authorities created at verify magic link in AuthController: [ROLE_FOOD_DONOR, ROLE_VOLUNTEER]
+2026-07-05T11:25:24.856+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Authentication set in SecurityContext at verify magic link in AuthController
+2026-07-05T11:25:24.860+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-5] c.s.Controller.AuthController            : Authentication at verify magic link in AuthController: UsernamePasswordAuthenticationToken [Principal=User [id=1, name=Aishwarya Patil, email=aishwaryapat932@gmail.com, phone=9301164090, isActive=true, createdAt=2026-02-14T16:21:02.943719, updatedAt=2026-03-06T21:29:10.892087, profileCompleted=true, roles=[com.saynotohunger.Entity.Role@6bbdc95f, com.saynotohunger.Entity.Role@193b3ae2]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_FOOD_DONOR, ROLE_VOLUNTEER]]
+2026-07-05T11:25:38.715+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Controller.AuthController            : verifyMagicLink() called
+2026-07-05T11:25:38.730+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Controller.AuthController            : AuthController verifyMagicLink hit
+2026-07-05T11:25:38.753+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Controller.AuthController            : Token received: af26691ceb3e45ba8561be1ffe5da328
+2026-07-05T11:25:38.761+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Entered verifyTokenAndLogin()
+2026-07-05T11:25:38.762+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Token received for verification
+2026-07-05T11:25:38.785+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Token fetched from DB
+2026-07-05T11:25:38.786+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Token used: true
+2026-07-05T11:25:38.788+05:30 DEBUG 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Token expires at: 2026-07-05T11:32:27.493635
+2026-07-05T11:25:38.791+05:30  WARN 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Service.MagicLinkService             : Attempt to reuse token for email:aishwaryapat932@gmail.com
+2026-07-05T11:25:38.834+05:30 ERROR 8796 --- [saynotohunger] [http-nio-1111-exec-9] c.s.Controller.AuthController            : Exception caught at verify magic link in AuthController:
+
+java.lang.IllegalStateException: Login token already used
+	at com.saynotohunger.Service.MagicLinkService.verifyTokenAndLogin(MagicLinkService.java:154) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.13.jar:6.1.13]
+	at com.saynotohunger.Service.MagicLinkService$$SpringCGLIB$$0.verifyTokenAndLogin(<generated>) ~[classes/:na]
+	at com.saynotohunger.Controller.AuthController.verifyMagicLink(AuthController.java:123) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:117) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:113) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-07-05T11:32:04.279+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler started
+2026-07-05T11:32:04.590+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Total expired donations: 0
+2026-07-05T11:32:04.591+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler finished
+2026-07-05T11:47:35.845+05:30  WARN 8796 --- [saynotohunger] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m31s773ms392µs500ns).
+2026-07-05T11:53:05.963+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler started
+2026-07-05T11:53:06.363+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Total expired donations: 0
+2026-07-05T11:53:06.365+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler finished
+2026-07-05T11:53:06.379+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler started
+2026-07-05T11:53:06.386+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Total expired donations: 0
+2026-07-05T11:53:06.386+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler finished
+2026-07-05T12:02:05.329+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler started
+2026-07-05T12:02:06.331+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Total expired donations: 0
+2026-07-05T12:02:06.337+05:30  INFO 8796 --- [saynotohunger] [MessageBroker-2] c.s.scheduler.DonationExpiryScheduler    : Donation expiry scheduler finished
